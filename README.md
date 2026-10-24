@@ -1,56 +1,51 @@
-# Soc-25: On-Chain Crowdfunding
+# On- Chain Crowdfunding
 
-This project demonstrates a complete on-chain crowdfunding system implemented and tested using Python, Web3.py, EthereumTester, and Solidity smart contracts compiled via py-solc-x. The entire workflow is designed to run in Google Colab.
+A decentralized crowdfunding application built using **Solidity, Python, and Web3.py**. The project explores how Ethereum smart contracts can manage fundraising campaigns, contributions, withdrawals, and refunds.
+
+## Features
+
+- **Campaign Creation:** Create fundraising campaigns with a target amount and deadline.
+- **Contributions:** Allow users to contribute Ether to active campaigns.
+- **Fund Withdrawal:** Enable campaign owners to withdraw funds once the target is met and the deadline has passed.
+- **Refunds:** Allow contributors to reclaim their funds if a campaign fails to reach its target.
+- **Transparency:** Track campaign details, contributions, and transactions through smart contract functions and events.
+- **Security:** Includes a basic reentrancy guard for withdrawal and refund operations.
+
+## Tech Stack
+
+- **Solidity** — Smart contract development
+- **Python** — Contract compilation, deployment, and interaction
+- **Web3.py** — Ethereum blockchain interactions
+- **EthereumTester** — Local blockchain testing
+- **py-solc-x** — Solidity compiler integration
+
+## How It Works
+
+1. A user creates a campaign with a funding goal and deadline.
+2. Contributors send Ether to support the campaign.
+3. Once the deadline passes:
+   - If the goal is reached, the campaign owner can withdraw the funds.
+   - If the goal is not reached, contributors can request refunds.
+4. Campaign details and individual contributions can be queried from the smart contract.
+
+## Running the Project
+
+The project was developed and tested using Google Colab with a local Ethereum test environment.
+
+Install the dependencies:
+
+```bash
+pip install web3 py-solc-x eth-tester==0.9.0b1 py-evm==0.7.0a2
+```
+
+Run the demonstration in Google Colab after installing the dependencies. The supplied script deploys a contract, creates a campaign, makes a contribution, and demonstrates a refund.
+
+> **Note:** The uploaded `.py` file contains a Colab-specific `!pip install` command. Remove or comment out that line before running it as a regular Python script.
+
+## Project Background
+
+Developed as part of **Summer of Code 2025**, with a focus on understanding Ethereum smart contracts and their practical applications in decentralized fundraising.
 
 ---
 
-## Week-wise Progress
-
-### Week 1
-- Set up the Python environment using Web3, EthereumTester, and py-solc-x.
-- Installed Solidity 0.8.0 and compiled the contract using `compile_source`.
-- Deployed a basic `Crowdfunding` contract using EthereumTesterProvider in Python.
-
-### Week 2
-- Defined a `Campaign` struct inside the Solidity contract, with fields like `owner`, `title`, `goal`, `deadline`, `raised`, `withdrawn`, and a mapping for `contributions`.
-- Used a global `campaignCount` and mapping to track all campaigns.
-- Added `createCampaign()` to let users start new campaigns with a title, funding goal, and deadline duration.
-
-### Week 3
-- Implemented `contribute()` function allowing users to send Ether to a campaign.
-- Used `msg.value` and `msg.sender` to track contribution values and contributors.
-- Emitted a `Contributed` event and updated the raised amount.
-
-### Week 4
-- Added `withdrawFunds()` to allow campaign owners to withdraw funds if the goal is met and the deadline has passed.
-- Added `refund()` to allow contributors to reclaim funds if the goal was not met by the deadline.
-- Used `require`, `block.timestamp`, and `noReentrant` modifier to enforce logic and prevent attacks.
-
-### Week 5
-- Introduced events: `CampaignCreated`, `Contributed`, `FundsWithdrawn`, and `Refunded`.
-- Each major state change now logs information useful for indexing and frontend apps.
-
-### Week 6
-- Simulated contributions and refunds using multiple Ethereum test accounts.
-- Waited for deadlines using `time.sleep()` in Colab.
-- Queried smart contract state using `getCampaign()` and `getContribution()`.
-
-### Week 7
-- A basic frontend was considered using Ethers.js for interacting with the contract.
-- Features like listing campaigns, displaying contribution status, and live funding progress were outlined.
-- Deployment target: Netlify or Vercel.
-
-### Week 8 
-- Project was packaged and documented with complete testing scripts.
-- Final state and logic validated in Python notebook using EthereumTester.
-- Ready for testnet deployment and community demo.
-
----
-
-## How to Run
-
-> Designed to run in a Google Colab notebook.
-
-1. Install dependencies:
-```python
-!pip install web3 py-solc-x eth-tester==0.9.0b1 py-evm==0.7.0a2
+*An educational prototype tested on a local Ethereum blockchain, not intended for production use with real funds.*
