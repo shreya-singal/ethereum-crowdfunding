@@ -35,10 +35,6 @@ Run the demonstration in Google Colab after installing the dependencies. The sup
 
 > **Note:** The uploaded `.py` file contains a Colab-specific `!pip install` command. Remove or comment out that line before running it as a regular Python script.
 
-## Project Background
-
-Developed as part of **Summer of Code 2025**, with a focus on understanding Ethereum smart contracts and their practical applications in decentralized fundraising.
-
 ---
 
 *An educational prototype tested on a local Ethereum blockchain, not intended for production use with real funds.*
