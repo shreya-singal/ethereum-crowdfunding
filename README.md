@@ -11,13 +11,6 @@ A decentralized crowdfunding application built using **Solidity, Python, and Web
 - **Transparency:** Track campaign details, contributions, and transactions through smart contract functions and events.
 - **Security:** Includes a basic reentrancy guard for withdrawal and refund operations.
 
-## Tech Stack
-
-- **Solidity** — Smart contract development
-- **Python** — Contract compilation, deployment, and interaction
-- **Web3.py** — Ethereum blockchain interactions
-- **EthereumTester** — Local blockchain testing
-- **py-solc-x** — Solidity compiler integration
 
 ## How It Works
 
