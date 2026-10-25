@@ -1,4 +1,4 @@
-# Ethereum Crowdfunding Demo
+# On Chain Crowdfunding
 
 A small Ethereum crowdfunding prototype built with Solidity and Python. This project demonstrates a complete crowdfunding lifecycle locally on an in-memory EVM, without requiring a public blockchain or wallet setup.
 
