@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ethereum-crowdfunding"
+version = "0.1.0"
+description = "Local Ethereum crowdfunding smart contract demo"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "web3==7.16.0",
+  "py-solc-x==2.0.5",
+  "eth-tester==0.13.0b1",
+  "py-evm==0.12.0b1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
