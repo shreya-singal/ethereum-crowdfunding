@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Optional
 
-from solcx import compile_source, install_solc
+from solcx import compile_source, get_installed_solc_versions, install_solc
 from web3 import EthereumTesterProvider, Web3
 
 from .config import CONTRACT_PATH, SOLC_VERSION
@@ -18,6 +18,10 @@ class CrowdfundingDemo:
 
 
 def install_solc_version(version: str = SOLC_VERSION) -> None:
+    installed_versions = {str(v) for v in get_installed_solc_versions()}
+    if version in installed_versions:
+        return
+
     try:
         install_solc(version)
     except Exception as exc:  # pragma: no cover - environment dependent
